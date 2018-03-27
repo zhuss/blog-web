@@ -2,6 +2,8 @@
   <section class="container">
        <div class="blog">
          <h1>{{title}}</h1>
+         <h2>{{abstract}}</h2>
+         <div class="content" v-html="content"></div>
        </div>
   </section>
 </template>
@@ -32,6 +34,20 @@ export default {
   padding: 30px;
   background: #FFF;
   min-height: 100%;
+}
+.blog h1{
+  font-size: 20px;
+  margin: 10px 0;
+}
+.blog h2{
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #E6E6E6;
+  padding: 20px;
+  background: #EEE;
+}
+.blog .content{
+  padding: 20px 0;
 }
 </style>
 
