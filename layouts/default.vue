@@ -16,6 +16,9 @@ html {
   box-sizing: border-box;
 }
 
+body,html{
+  min-height: 100%;
+}
 body{
   background: #F9F9F9;
   -webkit-tap-highlight-color: transparent;

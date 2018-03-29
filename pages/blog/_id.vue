@@ -1,8 +1,9 @@
 <template>
   <section class="container">
        <div class="blog">
-         <h1>{{title}}</h1>
-         <h2>{{abstract}}</h2>
+         <h1 class="title">{{title}}</h1>
+         <p class="author">文 / {{author}}  {{moment(createdAt).format('YYYY / MM / DD')}}</p>
+         <div class="abstract">{{abstract}}</div>
          <div class="content" v-html="content"></div>
        </div>
   </section>
@@ -19,15 +20,25 @@ export default {
     }else{
       error({ statusCode: data.code, message:data.msg});
     }
+  },
+  data(){
+    return {
+       moment:moment
+    }
   }
 }
 </script>
+<style>
+.blog .content p,.blog .content div{
+  margin: 15px 0;
+}
+</style>
 <style scoped>
 .container{
-  padding-bottom: 30px;
   width: 100%;
   max-width: 800px;
   height: auto;
+  min-height: 100%;
   margin-left:auto;
 }
 .blog{
@@ -35,11 +46,14 @@ export default {
   background: #FFF;
   min-height: 100%;
 }
-.blog h1{
+.blog .title{
   font-size: 20px;
   margin: 10px 0;
 }
-.blog h2{
+.blog .author{
+  margin:20px 0;
+}
+.blog .abstract{
   font-size: 14px;
   color: #333;
   border: 1px solid #E6E6E6;
